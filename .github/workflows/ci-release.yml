@@ -47,7 +47,7 @@ jobs:
         run: mv release/ByteBlox.exe ByteBlox.exe
 
       - name: Create release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           draft: true
           files: ByteBlox.exe
@@ -73,7 +73,7 @@ jobs:
         run: mv release/ByteBlox.exe ByteBlox.exe
 
       - name: Create release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           draft: true
           files: ByteBlox.exe
