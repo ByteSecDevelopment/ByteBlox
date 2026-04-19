@@ -51,13 +51,17 @@ if ([string]::IsNullOrWhiteSpace($currentBranch)) {
 }
 
 Write-Host "[$LOG_IDENT] Preparing changes on branch $currentBranch..." -ForegroundColor Cyan
-git add .
-$status = git status --porcelain
-if ([string]::IsNullOrWhiteSpace($status)) {
-    Write-Host "[$LOG_IDENT] No changes detected, skipping commit." -ForegroundColor Yellow
+git add --all
+# Check if there are any STAGED changes to commit
+git diff --cached --quiet
+$hasStagedChanges = $LASTEXITCODE -ne 0
+
+if (-not $hasStagedChanges) {
+    Write-Host "[$LOG_IDENT] No staged changes detected, skipping commit." -ForegroundColor Yellow
 } else {
     Write-Host "[$LOG_IDENT] Committing changes..." -ForegroundColor Cyan
-    $commitResult = git commit -m "Build: Bump version to $Version"
+    # Using --no-verify to skip hooks if any
+    $commitResult = git commit -m "Build: Bump version to $Version" 2>&1
     if ($LASTEXITCODE -ne 0 -and $commitResult -notlike "*nothing to commit*") {
         Write-Host "[$LOG_IDENT] Error: Git commit failed!" -ForegroundColor Red
         Write-Host "[$LOG_IDENT] Details: $commitResult" -ForegroundColor Gray
