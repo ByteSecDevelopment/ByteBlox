@@ -15,7 +15,7 @@
 *ByteBlox is a custom bootstrapper for Roblox based on Bloxstrap.*
 *It aims to provide additional features to compliment your experience.*
 
-***Found any bugs? [Submit an issue](https://github.com/ByteSecDevelopment/ByteBlox/issues/new/choose) or create a bug report in our [Discord server](https://discord.gg/bytesec).***
+***Found any bugs? [Submit an issue](https://github.com/ByteSecDevelopment/ByteBlox/issues/new/choose) or create a bug report in our [Discord server](https://discord.gg/9KmrM64JjC).***
 
 > [!NOTE]
 > ByteBlox only supports **Windows 10 and above**.
@@ -51,4 +51,4 @@ To easily create a new version and upload it to GitHub:
 [repo-releases]: https://github.com/ByteSecDevelopment/ByteBlox/releases
 [repo-latest]:   https://github.com/ByteSecDevelopment/ByteBlox/releases/latest
 
-[discord-invite]:  https://discord.gg/bytesec
+[discord-invite]:  [https://discord.gg/bytesec](https://discord.gg/9KmrM64JjC)
