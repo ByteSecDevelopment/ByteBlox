@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- BYTEBLOX palette: electric blue accents (merged after WPF UI theme) -->
+    <Color x:Key="SystemAccentColorPrimary">#FF3BA4FF</Color>
+    <Color x:Key="SystemAccentColorSecondary">#FF1E6FD9</Color>
+    <Color x:Key="SystemAccentColorTertiary">#FF0B3D7A</Color>
+
+    <SolidColorBrush x:Key="SystemAccentColorPrimaryBrush" Color="{StaticResource SystemAccentColorPrimary}" />
+    <SolidColorBrush x:Key="SystemAccentColorSecondaryBrush" Color="{StaticResource SystemAccentColorSecondary}" />
+    <SolidColorBrush x:Key="SystemAccentColorTertiaryBrush" Color="{StaticResource SystemAccentColorTertiary}" />
+</ResourceDictionary>

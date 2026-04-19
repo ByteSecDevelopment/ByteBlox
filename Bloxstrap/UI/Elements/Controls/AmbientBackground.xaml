@@ -1,0 +1,124 @@
+<UserControl x:Class="Bloxstrap.UI.Elements.Controls.AmbientBackground"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             IsHitTestVisible="False"
+             Focusable="False">
+    <UserControl.Resources>
+        <CubicEase x:Key="AmbientEase" EasingMode="EaseInOut" />
+        <Storyboard x:Key="AmbientDrift" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Blob1Transform" Storyboard.TargetProperty="X" Duration="0:0:22">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="-120" />
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="80" EasingFunction="{StaticResource AmbientEase}" />
+                <EasingDoubleKeyFrame KeyTime="0:0:22" Value="-120" EasingFunction="{StaticResource AmbientEase}" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Blob1Transform" Storyboard.TargetProperty="Y" Duration="0:0:18">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="-60" />
+                <EasingDoubleKeyFrame KeyTime="0:0:9" Value="120" EasingFunction="{StaticResource AmbientEase}" />
+                <EasingDoubleKeyFrame KeyTime="0:0:18" Value="-60" EasingFunction="{StaticResource AmbientEase}" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Blob2Transform" Storyboard.TargetProperty="X" Duration="0:0:26">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="180" />
+                <EasingDoubleKeyFrame KeyTime="0:0:13" Value="320" EasingFunction="{StaticResource AmbientEase}" />
+                <EasingDoubleKeyFrame KeyTime="0:0:26" Value="180" EasingFunction="{StaticResource AmbientEase}" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Blob2Transform" Storyboard.TargetProperty="Y" Duration="0:0:20">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="40" />
+                <EasingDoubleKeyFrame KeyTime="0:0:10" Value="200" EasingFunction="{StaticResource AmbientEase}" />
+                <EasingDoubleKeyFrame KeyTime="0:0:20" Value="40" EasingFunction="{StaticResource AmbientEase}" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Blob3Transform" Storyboard.TargetProperty="X" Duration="0:0:24">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="20" />
+                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="200" EasingFunction="{StaticResource AmbientEase}" />
+                <EasingDoubleKeyFrame KeyTime="0:0:24" Value="20" EasingFunction="{StaticResource AmbientEase}" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Blob3Transform" Storyboard.TargetProperty="Y" Duration="0:0:21">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="200" />
+                <EasingDoubleKeyFrame KeyTime="0:0:10.5" Value="40" EasingFunction="{StaticResource AmbientEase}" />
+                <EasingDoubleKeyFrame KeyTime="0:0:21" Value="200" EasingFunction="{StaticResource AmbientEase}" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid x:Name="RootGrid" ClipToBounds="True">
+        <Grid.Background>
+            <SolidColorBrush Color="#05080F" />
+        </Grid.Background>
+
+        <Border x:Name="StaticSheen" Visibility="Collapsed">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0A1020" Offset="0" />
+                    <GradientStop Color="#05080F" Offset="0.45" />
+                    <GradientStop Color="#0C1630" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Canvas x:Name="AmbientLayer">
+            <Ellipse x:Name="Blob1" Width="520" Height="520" Opacity="0.35">
+                <Ellipse.Fill>
+                    <RadialGradientBrush GradientOrigin="0.4,0.4" Center="0.4,0.4" RadiusX="0.55" RadiusY="0.55">
+                        <GradientStop Color="#003BA4FF" Offset="1" />
+                        <GradientStop Color="#553BA4FF" Offset="0" />
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.RenderTransform>
+                    <TranslateTransform x:Name="Blob1Transform" X="-80" Y="-40" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse x:Name="Blob2" Width="460" Height="460" Opacity="0.28">
+                <Ellipse.Fill>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.55" RadiusY="0.55">
+                        <GradientStop Color="#001E6FD9" Offset="1" />
+                        <GradientStop Color="#661E6FD9" Offset="0" />
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.RenderTransform>
+                    <TranslateTransform x:Name="Blob2Transform" X="220" Y="80" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse x:Name="Blob3" Width="380" Height="380" Opacity="0.22">
+                <Ellipse.Fill>
+                    <RadialGradientBrush GradientOrigin="0.45,0.55" Center="0.45,0.55" RadiusX="0.5" RadiusY="0.5">
+                        <GradientStop Color="#000B3D7A" Offset="1" />
+                        <GradientStop Color="#770B4D9A" Offset="0" />
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.RenderTransform>
+                    <TranslateTransform x:Name="Blob3Transform" X="40" Y="220" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
+        </Canvas>
+
+        <Border x:Name="Finishes" IsHitTestVisible="False">
+            <Border.Background>
+                <DrawingBrush TileMode="Tile" Viewport="0,0,48,48" ViewportUnits="Absolute" Opacity="0.06">
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing>
+                            <GeometryDrawing.Geometry>
+                                <GeometryGroup>
+                                    <LineGeometry StartPoint="0,0" EndPoint="48,48" />
+                                    <LineGeometry StartPoint="48,0" EndPoint="0,48" />
+                                </GeometryGroup>
+                            </GeometryDrawing.Geometry>
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="#3BA4FF" Thickness="0.35" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Border.Background>
+        </Border>
+
+        <Border IsHitTestVisible="False">
+            <Border.Background>
+                <RadialGradientBrush GradientOrigin="0.5,0.35" Center="0.5,0.35" RadiusX="0.85" RadiusY="0.95">
+                    <GradientStop Color="#00000000" Offset="0.25" />
+                    <GradientStop Color="#E605080F" Offset="1" />
+                </RadialGradientBrush>
+            </Border.Background>
+        </Border>
+    </Grid>
+</UserControl>
